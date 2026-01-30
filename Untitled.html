@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Canada Income Tax Calculator</title>
+  <meta name="description" content="Free Canadian income tax calculator with RRSP, FHSA, provincial tax tips, and real-time results.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="banner">
+  <h1>🍁 Canada Tax Calculator</h1>
+  <p>Real-time income tax estimate</p>
+</header>
+
+<div class="container">
+
+  <label>Annual Income ($)</label>
+  <input type="number" id="income" placeholder="e.g. 80000">
+
+  <label>Province / Territory</label>
+  <select id="province"></select>
+
+  <label>Pay Frequency</label>
+  <select id="frequency">
+    <option value="annual">Annual</option>
+    <option value="monthly">Monthly</option>
+    <option value="biweekly">Bi-Weekly</option>
+    <option value="weekly">Weekly</option>
+  </select>
+
+  <button id="toggleAdvanced">Show Advanced Options</button>
+
+  <div id="advanced" class="hidden">
+    <label>RRSP Contribution ($)</label>
+    <input type="number" id="rrsp" value="0">
+
+    <label>FHSA Contribution ($)</label>
+    <input type="number" id="fhsa" value="0">
+  </div>
+
+  <div class="results">
+    <h2>Results</h2>
+
+    <div class="dot">
+      <span>💰 Net Pay</span>
+      <strong id="netPay">$0</strong>
+    </div>
+
+    <div class="dot">
+      <span>🧾 Total Taxes Paid</span>
+      <strong id="totalTax">$0</strong>
+    </div>
+
+    <div class="dot">
+      <span>🏛 Federal Tax</span>
+      <strong id="federalTax">$0</strong>
+    </div>
+
+    <div class="dot">
+      <span>📍 Provincial Tax</span>
+      <strong id="provincialTax">$0</strong>
+    </div>
+  </div>
+
+  <div class="tips">
+    <h3>Provincial Tax Tips</h3>
+    <p id="tipsText"></p>
+  </div>
+
+  <div class="disclaimer">
+    <p>⚠️ Disclaimer: This calculator provides estimates only and should not be considered financial or tax advice.</p>
+  </div>
+
+</div>
+
+<a href="https://buymeacoffee.com/coffecoins" target="_blank" class="coffee-float">
+  ☕ Buy me a coffee
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
