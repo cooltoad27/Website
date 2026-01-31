@@ -10,14 +10,14 @@ body {
   background: linear-gradient(135deg, #0fb9b1, #3867d6);
   color: white;
   text-align: center;
-  padding: 4px 12px;
+  padding: 4px 12px; /* Smaller banner */
 }
 
 .container {
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  padding-bottom: 120px;
+  padding-bottom: 120px; /* Space for floating button */
 }
 
 label {
@@ -46,12 +46,13 @@ select:focus {
 }
 
 button {
-  background: #3867d6;
+  background: #3867d6; /* Blue button */
   color: white;
   border: none;
   margin-top: 20px;
   cursor: pointer;
   transition: background 0.2s ease;
+  border-radius: 8px;
 }
 
 button:hover {
@@ -92,28 +93,44 @@ button:hover {
   padding: 16px;
   border-radius: 8px;
   margin-top: 25px;
+  font-size: 0.95em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
-/* Smaller Buy Me a Coffee button */
+/* Floating Buy Me a Coffee button - smaller */
 .coffee-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 24px; /* Desktop position */
+  right: 24px;
   background: #ffdd00;
   color: black;
-  padding: 8px 12px;
+  padding: 8px 12px; /* Smaller size */
   border-radius: 40px;
-  text-decoration: none;
   font-weight: bold;
-  font-size: 0.85em;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+  font-size: 0.85em; /* Smaller font */
+  transition: all 0.3s ease;
 }
 
-/* Mobile adjustments */
+.coffee-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* MOBILE ADJUSTMENTS */
 @media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
   .container {
+    max-width: 100%;
     padding: 12px;
-    padding-bottom: 140px;
+    padding-bottom: 140px; /* extra space for button */
   }
 
   input,
@@ -123,12 +140,50 @@ button:hover {
     padding: 12px;
   }
 
+  label {
+    font-size: 1em;
+    margin-top: 16px;
+  }
+
+  .dot {
+    padding: 14px;
+    font-size: 1em;
+  }
+
   .dot strong {
     font-size: 1.25em;
   }
 
+  .tips {
+    padding: 16px;
+    font-size: 0.95em;
+  }
+
+  .disclaimer {
+    font-size: 0.9em;
+    padding: 12px;
+  }
+
+  /* Move smaller Buy Me a Coffee up on mobile */
   .coffee-float {
-    padding: 6px 10px;
-    font-size: 0.8em;
+    bottom: 180px; /* raised above Net Pay */
+  }
+
+  .banner {
+    padding: 4px 12px;
+  }
+
+  h1,h2,h3 {
+    margin: 0.3em 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .coffee-float {
+    bottom: 200px; /* even higher for tiny screens */
+  }
+
+  .dot strong {
+    font-size: 1.15em;
   }
 }
