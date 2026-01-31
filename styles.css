@@ -94,17 +94,19 @@ button:hover {
   margin-top: 25px;
 }
 
+/* Smaller Buy Me a Coffee button */
 .coffee-float {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 20px;
+  right: 20px;
   background: #ffdd00;
   color: black;
-  padding: 14px 18px;
-  border-radius: 50px;
+  padding: 8px 12px;
+  border-radius: 40px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 0.85em;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Mobile adjustments */
@@ -123,5 +125,10 @@ button:hover {
 
   .dot strong {
     font-size: 1.25em;
+  }
+
+  .coffee-float {
+    padding: 6px 10px;
+    font-size: 0.8em;
   }
 }
