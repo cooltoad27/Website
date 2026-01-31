@@ -100,11 +100,11 @@ button:hover {
 /* Floating Buy Me a Coffee button - smaller */
 .coffee-float {
   position: fixed;
-  bottom: 24px; /* Desktop position */
+  bottom: 60px; /* closer to original but raised slightly */
   right: 24px;
   background: #ffdd00;
   color: black;
-  padding: 8px 12px; /* Smaller size */
+  padding: 8px 12px; /* smaller size */
   border-radius: 40px;
   font-weight: bold;
   text-decoration: none;
@@ -112,7 +112,7 @@ button:hover {
   align-items: center;
   gap: 8px;
   z-index: 9999;
-  font-size: 0.85em; /* Smaller font */
+  font-size: 0.85em; /* smaller font */
   transition: all 0.3s ease;
 }
 
@@ -164,9 +164,9 @@ button:hover {
     padding: 12px;
   }
 
-  /* Move smaller Buy Me a Coffee up on mobile */
+  /* Move smaller Buy Me a Coffee slightly above bottom */
   .coffee-float {
-    bottom: 180px; /* raised above Net Pay */
+    bottom: 90px; /* slightly higher than desktop to avoid Net Pay */
   }
 
   .banner {
@@ -180,7 +180,7 @@ button:hover {
 
 @media (max-width: 380px) {
   .coffee-float {
-    bottom: 200px; /* even higher for tiny screens */
+    bottom: 100px; /* tiny screens slightly higher */
   }
 
   .dot strong {
