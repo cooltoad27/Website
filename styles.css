@@ -10,7 +10,7 @@ body {
   background: linear-gradient(135deg, #0fb9b1, #3867d6);
   color: white;
   text-align: center;
-  padding: 20px 15px;
+  padding: 12px 15px;
 }
 
 .container {
@@ -26,13 +26,23 @@ label {
   font-weight: bold;
 }
 
-input, select, button {
+input,
+select,
+button {
   width: 100%;
   padding: 14px;
   margin-top: 6px;
   font-size: 1em;
   border: 1px solid #999;
   border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.25);
 }
 
 button {
@@ -41,10 +51,21 @@ button {
   border: none;
   margin-top: 20px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 button:hover {
   background: #3156c1;
+}
+
+/* Show Advanced Options button - Dark Teal */
+#toggleAdvanced {
+  background: #006d5b;
+  color: white;
+}
+
+#toggleAdvanced:hover {
+  background: #005048;
 }
 
 .hidden {
@@ -60,7 +81,7 @@ button:hover {
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .dot strong {
@@ -93,5 +114,24 @@ button:hover {
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .container {
+    padding: 12px;
+    padding-bottom: 140px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 0.95em;
+    padding: 12px;
+  }
+
+  .dot strong {
+    font-size: 1.25em;
+  }
 }
