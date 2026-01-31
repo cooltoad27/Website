@@ -10,7 +10,7 @@ body {
   background: linear-gradient(135deg, #0fb9b1, #3867d6);
   color: white;
   text-align: center;
-  padding: 8px 12px;
+  padding: 4px 12px;
 }
 
 .container {
@@ -41,8 +41,8 @@ button {
 input:focus,
 select:focus {
   outline: none;
-  border-color: #1abc9c;
-  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.25);
+  border-color: #3867d6;
+  box-shadow: 0 0 0 3px rgba(56, 103, 214, 0.25);
 }
 
 button {
@@ -56,16 +56,6 @@ button {
 
 button:hover {
   background: #3156c1;
-}
-
-/* Show Advanced Options button - Dark Teal */
-#toggleAdvanced {
-  background: #006d5b;
-  color: white;
-}
-
-#toggleAdvanced:hover {
-  background: #005048;
 }
 
 .hidden {
