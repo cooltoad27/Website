@@ -10,14 +10,14 @@ body {
   background: linear-gradient(135deg, #0fb9b1, #3867d6);
   color: white;
   text-align: center;
-  padding: 4px 12px;
+  padding: 6px 12px;
 }
 
 .container {
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  padding-bottom: 120px; /* keeps desktop spacing perfect */
+  padding-bottom: 120px;
 }
 
 label {
@@ -35,14 +35,6 @@ button {
   font-size: 1em;
   border: 1px solid #999;
   border-radius: 6px;
-  box-sizing: border-box;
-}
-
-input:focus,
-select:focus {
-  outline: none;
-  border-color: #3867d6;
-  box-shadow: 0 0 0 3px rgba(56, 103, 214, 0.25);
 }
 
 button {
@@ -51,12 +43,7 @@ button {
   border: none;
   margin-top: 20px;
   cursor: pointer;
-  transition: background 0.2s ease;
   border-radius: 8px;
-}
-
-button:hover {
-  background: #3156c1;
 }
 
 .hidden {
@@ -67,12 +54,18 @@ button:hover {
   margin-top: 30px;
 }
 
+.results-note {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 12px;
+}
+
 .dot {
   background: white;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
 .dot strong {
@@ -87,86 +80,62 @@ button:hover {
   margin-top: 25px;
 }
 
+.seo-content {
+  margin-top: 40px;
+}
+
+.seo-content h2 {
+  margin-top: 24px;
+  color: #1a3c6d;
+}
+
+.seo-content ul {
+  padding-left: 20px;
+}
+
 .disclaimer {
   background: #fff3cd;
   color: #856404;
   padding: 16px;
   border-radius: 8px;
   margin-top: 25px;
-  font-size: 0.95em;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
-/* ---------------------------------------------------
-   Buy Me a Coffee – OFFICIAL WIDGET HANDLING
---------------------------------------------------- */
-
-/* Ensure widget stays above content but below modals */
-iframe[src*="buymeacoffee"] {
-  z-index: 9999 !important;
+/* -----------------------------------------
+   Buy Me a Coffee – Floating Button
+----------------------------------------- */
+.coffee-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(135deg, #ffdd57, #ffc107);
+  color: #2c2c2c;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ---------------------------------------------------
-   MOBILE ADJUSTMENTS
---------------------------------------------------- */
+.coffee-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+}
+
+/* Mobile adjustments */
 @media (max-width: 600px) {
-  body {
-    font-size: 16px;
-  }
-
   .container {
-    max-width: 100%;
     padding: 12px;
-    padding-bottom: 24px; /* removed extra space for old button */
+    padding-bottom: 24px;
   }
 
-  input,
-  select,
-  button {
-    font-size: 0.95em;
-    padding: 12px;
-  }
-
-  label {
-    font-size: 1em;
-    margin-top: 16px;
-  }
-
-  .dot {
-    padding: 14px;
-    font-size: 1em;
-  }
-
-  .dot strong {
-    font-size: 1.25em;
-  }
-
-  .tips {
-    padding: 16px;
-    font-size: 0.95em;
-  }
-
-  .disclaimer {
-    font-size: 0.9em;
-    padding: 12px;
-  }
-
-  .banner {
-    padding: 4px 12px;
-  }
-
-  h1, h2, h3 {
-    margin: 0.3em 0;
-  }
-
-  /* ❌ REMOVE old custom Buy Me a Coffee button on mobile */
   .coffee-float {
-    display: none !important;
-  }
-}
-
-@media (max-width: 380px) {
-  .dot strong {
-    font-size: 1.15em;
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
   }
 }
