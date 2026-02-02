@@ -9,22 +9,27 @@ const provincialTaxEl = document.getElementById("provincialTax");
 const totalTaxEl = document.getElementById("totalTax");
 const netPayEl = document.getElementById("netPay");
 const tipsText = document.getElementById("tipsText");
-const frequencyLabel = document.getElementById("frequencyLabel");
+
+const toggleBtn = document.getElementById("toggleAdvanced");
+const advanced = document.getElementById("advanced");
+const coffeeButton = document.querySelector(".coffee-float");
+
+let hasInteracted = false;
 
 const provinces = {
-  "Ontario": "Ontario Health Premium may apply at higher income levels.",
-  "British Columbia": "Lower middle-income provincial tax brackets.",
-  "Alberta": "Flat provincial income tax rate.",
-  "Quebec": "Higher overall taxes; RRSP deductions are especially valuable.",
-  "Manitoba": "Higher marginal tax rates at upper income levels.",
-  "Saskatchewan": "Education and caregiver credits may apply.",
-  "Nova Scotia": "Among the highest marginal tax rates in Canada.",
-  "New Brunswick": "Middle-income relief credits available.",
-  "Newfoundland and Labrador": "Recent changes to provincial tax rates.",
-  "Prince Edward Island": "Lower tax brackets but higher consumption taxes.",
-  "Yukon": "Relatively low territorial income tax rates.",
-  "Northwest Territories": "Among the lowest overall income taxes.",
-  "Nunavut": "Lowest personal income tax rates in Canada."
+  "Ontario": "Ontario Health Premium may apply at higher incomes.",
+  "British Columbia": "Lower middle-income tax brackets.",
+  "Alberta": "Flat provincial tax rate.",
+  "Quebec": "Higher taxes; RRSP deductions are valuable.",
+  "Manitoba": "Higher top marginal rates.",
+  "Saskatchewan": "Education and caregiver credits available.",
+  "Nova Scotia": "Highest marginal tax rates.",
+  "New Brunswick": "Middle-income relief credits.",
+  "Newfoundland and Labrador": "Recent tax increases.",
+  "Prince Edward Island": "Lower brackets, higher consumption taxes.",
+  "Yukon": "Low territorial tax rates.",
+  "Northwest Territories": "Among the lowest taxes.",
+  "Nunavut": "Lowest income tax rates."
 };
 
 // Populate province dropdown
@@ -34,9 +39,6 @@ Object.keys(provinces).forEach(p => {
   option.textContent = p;
   provinceSelect.appendChild(option);
 });
-
-// Default province
-provinceSelect.value = "Ontario";
 
 function calculate() {
   const income = Number(incomeInput.value) || 0;
@@ -55,19 +57,18 @@ function calculate() {
     frequency.value === "biweekly" ? 26 :
     frequency.value === "weekly" ? 52 : 1;
 
-  const label =
-    frequency.value === "monthly" ? "(Monthly)" :
-    frequency.value === "biweekly" ? "(Bi-Weekly)" :
-    frequency.value === "weekly" ? "(Weekly)" : "(Annual)";
-
-  frequencyLabel.textContent = label;
-
   federalTaxEl.textContent = format(federalTax / divisor);
   provincialTaxEl.textContent = format(provincialTax / divisor);
   totalTaxEl.textContent = format(totalTax / divisor);
   netPayEl.textContent = format(netPay / divisor);
 
-  tipsText.textContent = provinces[provinceSelect.value];
+  tipsText.textContent = provinces[provinceSelect.value] || "";
+
+  // Show coffee button only after first meaningful interaction (desktop only)
+  if (!hasInteracted && income > 0 && window.innerWidth > 600) {
+    coffeeButton.style.display = "block";
+    hasInteracted = true;
+  }
 }
 
 function format(num) {
@@ -78,8 +79,11 @@ document.querySelectorAll("input, select").forEach(el => {
   el.addEventListener("input", calculate);
 });
 
-document.getElementById("toggleAdvanced").addEventListener("click", () => {
-  document.getElementById("advanced").classList.toggle("hidden");
+toggleBtn.addEventListener("click", () => {
+  advanced.classList.toggle("hidden");
+  toggleBtn.textContent = advanced.classList.contains("hidden")
+    ? "Show Advanced Options"
+    : "Hide Advanced Options";
 });
 
 calculate();
